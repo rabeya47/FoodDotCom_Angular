@@ -1,0 +1,108 @@
+<div class="content-wrapper" style="background-color: #effcfc;">
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="">
+                <u>
+                    <h1 class="row justify-content-center fw-bolder text-dark">Add New Product</h1>
+                </u>
+            </div>
+            <div class="col-md-6">
+                <div *ngIf="success" class="alert alert-success" role="alert">
+                    save successfully
+                </div>
+                <div *ngIf="update" class="alert alert-success" role="alert">
+                    Update successfully
+                </div>
+                <div *ngIf="delete" class="alert alert-success" role="alert">
+                    Delete successfully
+                </div>
+                <form class="fw-bold mt-4" (ngSubmit)='isSave ? saveProduct() : updateProduct()'>
+
+                    <div class="form-group mt-1">
+                        <label for="productName" class="label">Product Name :</label>
+                        <input class="form-control" type="text" [(ngModel)]="product.productName" name="productName"
+                            id="productName" placeholder="Enter Product name" />
+                    </div>
+
+                    <div class="form-group mt-1">
+                        <label for="quantity" class="label">Quantity :</label>
+                        <input class="form-control" type="text" [(ngModel)]="product.quantity" name="quantity"
+                            id="quantity" placeholder="" />
+                    </div>
+                    <div class="form-group mt-1">
+                        <label for="price" class="label">Price :</label>
+                        <input class="form-control" type="text" [(ngModel)]="product.price" name="price" id="price"
+                            placeholder="" />
+                    </div>
+                    <div class="form-group mt-1">
+                        <label for="remarks" class="label">Remarks </label>
+                        <input class="form-control" type="text" [(ngModel)]="product.remarks" name="remarks"
+                            id="remarks" placeholder="Enter Comments" />
+                    </div>
+
+
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">
+                            images <span class="text-danger"> *</span></label>
+
+                        <input type="file" id="file" name="file" multiple (change)="fileChange($event.target)"><br><br>
+
+
+                        <label >Categoty </label>
+                        <select name="categoryId" id="categoryId" class="form-control" [(ngModel)]="product.categoryId">
+                            <option value="1">Groceries</option>
+                            <option value="2">Fastfood</option>
+                            <!-- <option value="3">diner</option> -->
+                          </select>
+
+                    </div>
+
+                    
+
+
+                    <div class="mt-2 float-end">
+                        <input class="btn btn-outline-success" type="submit" value="{{isSave ? 'Save':'Update'}}">
+                    </div>
+                </form>
+
+
+                <button (click)="toggleProductList()" class="btn btn-outline-secondary">Product List</button>
+
+            </div>
+        </div>
+    </div>
+    <br />
+
+
+    <table *ngIf="isShowTable" class="table table-striped">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">QUANTITY</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">REMARKS</th>
+                <th scope="col">IMAGE</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            <tr *ngFor="let product of products; index as i">
+                <td>{{product.id}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.remarks}}</td>
+                <td><img src={{product.imagesUri}}></td>
+                <td>
+                    <button (click)="editProduct(product)" class="btn btn-outline-dark">Edit</button> |
+                    <button (click)="deleteProduct(product)" class="btn btn-outline-danger">Delete</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

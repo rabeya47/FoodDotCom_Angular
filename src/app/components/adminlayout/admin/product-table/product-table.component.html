@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+    <div class="">
+        <u>
+            <h1 class="row justify-content-center fw-bolder text-dark"> Product List</h1>
+        </u>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Remarks</th>
+                <th scope="col">Image</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ='let pro of Products; index i;'>
+                <td>{{pro.id}}</td>
+                <td>{{pro.productName}}</td>
+                <td>{{pro.quantity}}</td>
+                <td>{{pro.price}}</td>
+                <td>{{pro.remarks}}</td>
+                <td><img src={{pro.imagesUri}} ></td>
+            </tr>
+        </tbody>
+    
+    </table> 
+</div>
+

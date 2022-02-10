@@ -1,0 +1,52 @@
+.pBox{
+    padding: 10px 5px;
+}
+
+.pBox img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.pBox img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.pBox h1{
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.pBox p{
+    font-size: 20px;
+    color: rgb(185, 12, 12);
+
+}
+
+.pBox a{
+    text-decoration: none;
+    background-color: rgb(10, 126, 10);
+    border-radius: 5px;
+    padding: 6px 15px;
+    font-size: 20px;
+    color: white;
+}
+
+
+
+
+.Page{
+    min-width: 75%;
+    padding-right: 60px;
+    
+}
+
+
+
+
+
+
