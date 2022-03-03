@@ -25,7 +25,7 @@ show(){
   this.http.get<any>('http://localhost:8081/product/category/2', { headers })
     .subscribe(map => {
 
-      this.products = map.Data;
+      this.products = map.data;
 
     })
   }

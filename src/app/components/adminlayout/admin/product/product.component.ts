@@ -106,12 +106,15 @@ export class ProductComponent implements OnInit {
 
   
   loadProductData() {
+    this.isShowTable = true ;
     const headers = { 'content-type': 'application/json' };
     this.http.get<any>('http://localhost:8081/product/getAll', { headers })
       .subscribe(map => {
 
-        this.products = map.Data;
-
+        this.products = map.data;
+        console.log(this.products);
+      
+      
       })
   }
 

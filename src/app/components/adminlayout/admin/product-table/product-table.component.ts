@@ -24,8 +24,8 @@ show(){
   this.http.get<any>('http://localhost:8081/product/getAll', { headers })
     .subscribe(map => {
 
-      this.Products = map.Data;
-
+      this.Products = map.data;
+      console.log(this.Products);
     })
   }
 
