@@ -28,27 +28,34 @@
             <thead class="table-dark">
                 <tr>
                     
-                    <th scope="col">Customer Name</th>
+                    <!-- <th scope="col">Customer Name</th> -->
+                    <th scope="col">pic</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                    <!-- <th scope="col">Status</th> -->
+                    <!-- <th scope="col">Action</th> -->
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let order of Orders; index as i ;">
+                <tr *ngFor = "let order of carts; index as i ;">
                    
-                    <td>{{order.customerName}}</td>
+                    <!-- <td>{{order.customerName}}</td> -->
+                    <td><img src={{order.imageUri}}></td>
                     <td>{{order.productName}}</td>
                     <td>{{order.quantity}}</td>
-                    <td>{{order.price}}</td>
-                    <td>{{order.status}}</td>
+                    <td>{{order.price*order.quantity}}</td>
+                    <!-- <td>{{order.status}}</td> -->
                    
-                    <td><button type="submit" name="submit" [disabled] = " order.status == 'cancel' || 'delivered' " class="btn btn-outline-danger" (click)="cancelOrder(order)" >Cancel</button>
+                    <!-- <td><button type="submit" name="submit" [disabled] = " order.status == 'cancel' || 'delivered' " class="btn btn-outline-danger" (click)="cancelOrder(order)" >Cancel</button>
                     ||
                     <button  type="submit" name="submit" [disabled] = " order.status == 'delivered' " class="btn btn-outline-success" (click)="delivered(order)" >Delivered</button>
-                    </td>  
+                    </td>   -->
+                </tr>
+                <tr>
+                  <td colspan =3 align =right>
+                    <b>Total Amount</b></td>
+                    <td> <b>{{total}} </b></td>
                 </tr>
             </tbody>
         
